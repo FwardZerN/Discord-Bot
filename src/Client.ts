@@ -9,7 +9,7 @@ declare module "discord.js" {
         commandManager: CommandManager,
         eventManager: EventManager,
         prefix: string[],
-        distube:distube
+        distube: distube
     }
 }
 
@@ -30,19 +30,19 @@ export default class JDAClient extends Client {
         this.token = config.token
         this.prefix = config.prefix
 
-        this.distube=new distube(this,{
-            leaveOnEmpty:false,
-            leaveOnFinish:false,
-            leaveOnStop:false,
-            youtubeDL:false,
-            plugins:[new YtDlpPlugin()]
+        this.distube = new distube(this, {
+            leaveOnEmpty: false,
+            leaveOnFinish: false,
+            leaveOnStop: false,
+            youtubeDL: false,
+            plugins: [new YtDlpPlugin()]
         })
-        .on("addSong",(queue,song) => {
-            queue.textChannel.send(`已成功將\`${song.name}\`加入歌單！`)
-        })
-        .on("playSong",(queue,song) => {
-            queue.textChannel.send(`即將開始播放：${song.name}`)
-        })
+            .on("addSong", (queue, song) => {
+                queue.textChannel.send(`已成功將\`${song.name}\`加入歌單！`)
+            })
+            .on("playSong", (queue, song) => {
+                queue.textChannel.send(`即將開始播放：${song.name}`)
+            })
     }
 
     public async start() {
