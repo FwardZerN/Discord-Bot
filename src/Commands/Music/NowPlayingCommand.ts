@@ -11,7 +11,10 @@ export default class Pause implements ICommand {
     public getInfo(): ICommandInfo {
         return {
             name: "nowplaying",
-            aliases: ["np"]
+            aliases: ["np"],
+            description:"查看目前正在播放的音樂",
+            usage:["nowplaying"],
+            example:["nowplaying"]
         };
     }
     public async handle(message: Message, args: string[]): Promise<any> {

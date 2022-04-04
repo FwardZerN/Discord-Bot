@@ -11,6 +11,9 @@ export default class Pause implements ICommand {
     public getInfo(): ICommandInfo {
         return {
             name: "resume",
+            description:"繼續播放音樂",
+            usage:["resume"],
+            example:["resume"]
         };
     }
     public async handle(message: Message, args: string[]): Promise<any> {

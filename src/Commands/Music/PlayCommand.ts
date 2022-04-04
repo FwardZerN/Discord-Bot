@@ -10,7 +10,10 @@ export default class Play implements ICommand{
     }
     public getInfo(): ICommandInfo {
         return {
-            name:"play"
+            name:"play",
+            description:"播放音樂",
+            usage:["play 連結","play 關鍵字"],
+            example:["play https://www.youtube.com/watch?v=dQw4w9WgXcQ","play never gonna give you up"]
         }
     }
 
