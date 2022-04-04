@@ -11,6 +11,9 @@ export default class Ping implements ICommand {
     public getInfo(): ICommandInfo {
         return {
             name: "ping",
+            description: "查看Bot延遲",
+            usage: ["ping"],
+            example: ["ping"]
         }
     }
     public async handle(message: Message<boolean>, args: string[]): Promise<any> {

@@ -1,21 +1,21 @@
-import { Message,Client } from "discord.js";
+import { Message, Client } from "discord.js";
 import IEvent from "../../Interfaces/IEvent";
 import IEventInfo from "../../Interfaces/IEventInfo";
 
-export default class messageCreate implements IEvent{
-    private client:Client;
+export default class messageCreate implements IEvent {
+    private client: Client;
 
-    public constructor(client:Client){
-        this.client=client
+    public constructor(client: Client) {
+        this.client = client
     }
 
     public getInfo(): IEventInfo {
         return {
-            type:"on",
-            event:"messageCreate"
+            type: "on",
+            event: "messageCreate"
         }
     }
-    public async handle(message:Message): Promise<any> {
+    public async handle(message: Message): Promise<any> {
         const mentionRegexPrefix: RegExp = RegExp(
             `^<@!${this.client.user.id}>`,
         );
@@ -29,5 +29,5 @@ export default class messageCreate implements IEvent{
         if (!prefix) return;
 
         this.client.commandManager.handle(message, prefix);
-    }   
+    }
 }
