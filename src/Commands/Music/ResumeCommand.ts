@@ -25,5 +25,6 @@ export default class Pause implements ICommand {
         if (voiceChannel.id !== myVoiceChannel.id)
             return message.channel.send("你跟我在不同語音頻道！");
         this.client.distube.resume(message)
+        return message.channel.send("成功繼續播放音樂！")
     }
 }

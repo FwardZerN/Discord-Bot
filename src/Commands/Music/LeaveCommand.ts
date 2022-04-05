@@ -27,6 +27,7 @@ export default class Pause implements ICommand {
 
         const player = this.client.distube.queues.get(message)
         if (player && !player.stopped) await player.stop()
-        return this.client.distube.voices.get(message).leave()
+        this.client.distube.voices.get(message).leave()
+        return message.channel.send("成功停止音樂並離開語音頻道！")
     }
 }

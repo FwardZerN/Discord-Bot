@@ -23,10 +23,10 @@ export default class Help implements ICommand {
             const commandsArr = Array.from(this.client.commandManager.commandsCollect.values())
             const cliUser = this.client.user
             const embed = new MessageEmbed()
-                .setAuthor({ name: cliUser.username, iconURL: cliUser.avatar })
+                .setAuthor({ name: cliUser.username, iconURL: cliUser.avatarURL({dynamic:true}) })
                 .setDescription(`輸入\`${this.client.prefix[0]}help 指令名稱/別名\`來查看該指令幫助`)
                 .addField("所有指令", commandsArr.map(e => `\`${e.getInfo().name}\``).join(" "), true)
-                .setThumbnail(cliUser.avatar)
+                .setThumbnail(cliUser.avatarURL({dynamic:true}))
 
             return message.channel.send({ embeds: [embed] })
         }
